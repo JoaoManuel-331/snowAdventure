@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciuj57u1ptn8t"]
+
+[ext_resource type="Script" path="res://scripts/sei_nao.gd" id="1_p1nlu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arujf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bm5j6"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="fala_do_player" type="CharacterBody2D"]
+script = ExtResource("1_p1nlu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(63, 55)
+shape = SubResource("CircleShape2D_arujf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -128.0
+offset_top = 19.0
+offset_right = 314.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Eu não aguento mais ficar aqui,eu sou diferente..."
+label_settings = SubResource("LabelSettings_bm5j6")
+uppercase = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
