@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2e2sl71b7b0m"]
+
+[ext_resource type="Texture2D" uid="uid://dm0yr4o6bxigh" path="res://PNG/snowzin.png" id="1_yxs0s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iafuo"]
+atlas = ExtResource("1_yxs0s")
+region = Rect2(230, 0, 115, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsvp7"]
+atlas = ExtResource("1_yxs0s")
+region = Rect2(230, 115, 115, 115)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p502o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iafuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvp7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfcho"]
+size = Vector2(9, 14)
+
+[node name="snowmanVerde" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.157, 0.157)
+sprite_frames = SubResource("SpriteFrames_p502o")
+autoplay = "default"
+frame_progress = 0.122154
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yfcho")
