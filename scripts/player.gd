@@ -1,12 +1,12 @@
 extends CharacterBody2D #Player
 
-const SPEED = 100
+const SPEED = 50
 
 # Limites de movimento
 const MIN_X = 0
-const MAX_X = 0
+const MAX_X = -10
 const MIN_Y = 0
-const MAX_Y = 0
+const MAX_Y = -10
 
 # Variável para armazenar a referência ao AnimatedSprite2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -46,6 +46,41 @@ func _physics_process(delta: float) -> void:
 		moving = true  # Marcamos que há movimento vertical
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+	if direction_vertical != 0 and direction_horizontal !=0:
+		if direction_horizontal > 0 and direction_vertical < 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.animation = "baixo_andando"
+			
+	if direction_vertical != 0 and direction_horizontal !=0:
+		if direction_horizontal > 0 and direction_vertical < 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.animation = "parado"
+			
+	#diagonal inferior direita
+	if direction_vertical != 0 and direction_horizontal !=0:
+		if direction_horizontal > 0 and direction_vertical > 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.animation = "parado"
+			
+	#diagonal superior esquerda
+	if direction_vertical != 0 and direction_horizontal !=0:
+		if direction_horizontal < 0 and direction_vertical < 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.animation = "parado"
+			
+	#diagonal inferior esquerda
+	if direction_vertical != 0 and direction_horizontal !=0:
+		if direction_horizontal < 0 and direction_vertical > 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animated_sprite.animation = "parado"
+		
+	
 	
 	# Se não houver movimento em nenhuma direção, coloca a animação "parado"
 	#diagonal superior direita

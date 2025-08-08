@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://xg2xy2lw56nj"]
+
+[ext_resource type="Script" path="res://scripts/fala_2_snowman.gd" id="1_dj34c"]
+[ext_resource type="FontFile" uid="uid://bci386q6khfq2" path="res://pixeled/Pixeled.ttf" id="2_klxwk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xk1l4"]
+radius = 19.105
+
+[sub_resource type="LabelSettings" id="LabelSettings_j548u"]
+font = ExtResource("2_klxwk")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="fala2snowman" type="CharacterBody2D"]
+script = ExtResource("1_dj34c")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_xk1l4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -83.0
+offset_top = -28.0
+offset_right = 78.0
+offset_bottom = -11.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -34.0
+offset_right = 77.0
+offset_bottom = -11.0
+text = "Porque aqui e tao frio..."
+label_settings = SubResource("LabelSettings_j548u")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

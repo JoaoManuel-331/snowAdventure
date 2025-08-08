@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bulbgt4ucn5om"]
+
+[ext_resource type="Script" path="res://scripts/fala_da_chave.gd" id="1_n8k1r"]
+[ext_resource type="FontFile" uid="uid://bci386q6khfq2" path="res://pixeled/Pixeled.ttf" id="2_yaxpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo2fe"]
+radius = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ki0l5"]
+font = ExtResource("2_yaxpr")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="FalaDaChave" type="CharacterBody2D"]
+script = ExtResource("1_n8k1r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(36, 54)
+shape = SubResource("CircleShape2D_fo2fe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = 10.0
+offset_right = 71.0
+offset_bottom = 37.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_top = 7.0
+offset_right = 74.0
+offset_bottom = 38.0
+text = "Esta autorizaco pode te ajudar"
+label_settings = SubResource("LabelSettings_ki0l5")
+autowrap_mode = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

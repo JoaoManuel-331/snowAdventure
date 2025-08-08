@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn1amujlr2s4r"]
+
+[ext_resource type="Script" path="res://scripts/coletavel.gd" id="1_l2d38"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru6jw"]
+radius = 14.5
+
+[node name="coletavel" type="Area2D"]
+script = ExtResource("1_l2d38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-56.5, 26)
+shape = SubResource("CircleShape2D_ru6jw")
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

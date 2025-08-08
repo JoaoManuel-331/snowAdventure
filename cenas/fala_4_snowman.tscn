@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c865k0yhsi4ke"]
+
+[ext_resource type="Script" path="res://scripts/fala_4_snowman.gd" id="1_u74ec"]
+[ext_resource type="FontFile" uid="uid://bci386q6khfq2" path="res://pixeled/Pixeled.ttf" id="2_yxwns"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igufv"]
+radius = 17.1172
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqalf"]
+font = ExtResource("2_yxwns")
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+
+[node name="fala4snowman" type="CharacterBody2D"]
+script = ExtResource("1_u74ec")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_igufv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -94.0
+offset_top = -23.0
+offset_right = 91.0
+offset_bottom = -12.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -91.0
+offset_top = -29.0
+offset_right = 91.0
+offset_bottom = -11.0
+text = "Acho que vou dormir mais um pouco..."
+label_settings = SubResource("LabelSettings_iqalf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

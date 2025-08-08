@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc8s8dsicogjr"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_0mim6"]
+[ext_resource type="Texture2D" uid="uid://opvb47gamtqx" path="res://project-city/autorizacao.png" id="2_be4pa"]
+[ext_resource type="FontFile" uid="uid://bci386q6khfq2" path="res://pixeled/Pixeled.ttf" id="3_iw5nq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_407sn"]
+font = ExtResource("3_iw5nq")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6x5c"]
+font = ExtResource("3_iw5nq")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_0mim6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(36, 17)
+scale = Vector2(0.108333, 0.1)
+texture = ExtResource("2_be4pa")
+
+[node name="contador de coletaveis" type="Label" parent="."]
+offset_left = 92.0
+offset_top = -5.0
+offset_right = 132.0
+offset_bottom = 41.0
+text = "0"
+label_settings = SubResource("LabelSettings_407sn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 67.0
+offset_top = -3.0
+offset_right = 88.0
+offset_bottom = 81.0
+text = ">"
+label_settings = SubResource("LabelSettings_l6x5c")

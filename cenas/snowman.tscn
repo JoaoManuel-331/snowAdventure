@@ -1,23 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://degtf2ppg0a8t"]
 
-[ext_resource type="Texture2D" uid="uid://cebouxd4gjvrf" path="res://PNG/nevi.png" id="1_fu86n"]
+[ext_resource type="Texture2D" uid="uid://dm0yr4o6bxigh" path="res://PNG/snowzin.png" id="1_txmwl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1b26l"]
-atlas = ExtResource("1_fu86n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3grsh"]
+atlas = ExtResource("1_txmwl")
 region = Rect2(0, 0, 115, 115)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx6hr"]
-atlas = ExtResource("1_fu86n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmpet"]
+atlas = ExtResource("1_txmwl")
 region = Rect2(0, 115, 115, 115)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktkgk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1b26l")
+"texture": SubResource("AtlasTexture_3grsh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wx6hr")
+"texture": SubResource("AtlasTexture_qmpet")
 }],
 "loop": true,
 "name": &"default",
@@ -27,14 +27,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f64i"]
 size = Vector2(9, 15)
 
-[node name="snowman" type="CharacterBody2D"]
+[node name="snowmanRosa" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6.97966, -4.85156)
-scale = Vector2(0.156875, 0.159103)
+scale = Vector2(0.155, 0.157)
 sprite_frames = SubResource("SpriteFrames_ktkgk")
 autoplay = "default"
-frame_progress = 0.343704
+frame_progress = 0.474187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.5, -4.5)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://653w0p4last5"]
+
+[ext_resource type="Script" path="res://scripts/fala_3_snowman.gd" id="1_spjye"]
+[ext_resource type="FontFile" uid="uid://bci386q6khfq2" path="res://pixeled/Pixeled.ttf" id="2_o1h2l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ivqk"]
+radius = 13.1529
+
+[sub_resource type="LabelSettings" id="LabelSettings_miru0"]
+font = ExtResource("2_o1h2l")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="fala3snowman" type="CharacterBody2D"]
+script = ExtResource("1_spjye")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-79, 20)
+shape = SubResource("CircleShape2D_8ivqk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -122.0
+offset_top = -18.0
+offset_right = -41.0
+offset_bottom = 8.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -118.0
+offset_top = -22.0
+offset_right = -37.0
+offset_bottom = 9.0
+text = "Voce e um dummy? que engraçado..."
+label_settings = SubResource("LabelSettings_miru0")
+autowrap_mode = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
